@@ -1,0 +1,56 @@
+@{
+    ViewData["Title"] = "Square Root";
+}
+
+<div class="text-center" style="margin:1em 0 3em 0">
+    <h1 class="display-4">Welcome</h1>
+    <p style="font-size: 1.25em">This app allows you to enter two numbers and determine which has the higher square root</p>
+    <form asp-controller="Root" asp-action="Square" method="POST">
+        <div class="text-center">
+            <input type="text" placeholder="First Number" name="firstNumber" style="padding:5px"/>
+        </div>
+        <div class="text-center" style="margin:1em 0">
+            <input type="text" placeholder="Second Number" name="secondNumber" style="padding:5px"/>
+        </div>
+        <div class="text-center">
+            <button type="submit" style="border-radius: 20px;font-weight: 700; background-color: rgb(153, 163, 163); border: 0 solid #e2e8f0; padding: .45rem 1.5rem; outline: none;">Submit</button>
+        </div>
+    </form>
+</div>
+
+@{
+    if(ViewBag.empty != null)
+    {
+        <div class="text-center">
+            <p style="font-size: 2em; color: red;">@ViewBag.empty</p>
+        </div>
+    };
+    
+    if(ViewBag.negative != null)
+    {
+        <div class="text-center">
+            <p style="font-size: 2em; color: red;">@ViewBag.negative</p>
+        </div>
+    };
+
+    if(ViewBag.same != null)
+    {
+        <div class="text-center">
+            <p style="font-size: 2em; color: red;">@ViewBag.same</p>
+        </div>
+    };
+
+    if(ViewBag.numbers != null)
+    {
+        <div class="text-center">
+            <p style="font-size: 2em; color: red;">@ViewBag.numbers</p>
+        </div>
+    };
+    
+    if(ViewBag.higher != null)
+    {
+        <div class="text-center">
+            <p style="font-size: 2em; color: green;">@ViewBag.higher</p>
+        </div>
+    };
+}
